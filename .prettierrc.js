@@ -1,8 +1,11 @@
+// https://segmentfault.com/a/1190000012909159
 module.exports = {
 	useTabs: true,
 	singleQuote: true,
 	printWidth: 120,
-	bracketSpacing: false,
+	bracketSpacing: true,
+	semi: true,
+	alwaysParens: "always",
 	overrides: [
 		{
 			files: '*.sol',
