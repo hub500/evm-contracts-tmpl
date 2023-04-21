@@ -9,6 +9,8 @@ import 'solidity-coverage';
 import 'hardhat-deploy-tenderly';
 import { node_url, accounts, addForkConfiguration } from './utils/network';
 import 'hardhat-contract-sizer';
+import '@nomiclabs/hardhat-etherscan';
+import { scanApiKey } from './utils/network';
 
 const config: HardhatUserConfig = {
 	solidity: {
@@ -59,6 +61,9 @@ const config: HardhatUserConfig = {
 	}),
 	paths: {
 		sources: 'contracts',
+	},
+	etherscan: {
+		apiKey: scanApiKey(),
 	},
 	gasReporter: {
 		currency: 'USD',

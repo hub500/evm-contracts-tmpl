@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import {HDAccountsUserConfig, HttpNetworkUserConfig, NetworksUserConfig} from 'hardhat/types';
+import { HDAccountsUserConfig, HttpNetworkUserConfig, NetworksUserConfig } from 'hardhat/types';
 export function node_url(networkName: string): string {
 	if (networkName) {
 		const uri = process.env['ETH_NODE_URI_' + networkName.toUpperCase()];
@@ -42,8 +42,13 @@ export function getMnemonic(networkName?: string): string {
 	return mnemonic;
 }
 
-export function accounts(networkName?: string): {mnemonic: string} {
-	return {mnemonic: getMnemonic(networkName)};
+export function accounts(networkName?: string): { mnemonic: string } {
+	return { mnemonic: getMnemonic(networkName) };
+}
+
+export function scanApiKey(): string {
+	let apiKey = process.env.ETHERSCAN_API_KEY as string;
+	return apiKey;
 }
 
 export function addForkConfiguration(networks: NetworksUserConfig): NetworksUserConfig {
