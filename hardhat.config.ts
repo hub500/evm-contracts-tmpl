@@ -8,6 +8,7 @@ import '@typechain/hardhat';
 import 'solidity-coverage';
 import 'hardhat-deploy-tenderly';
 import {node_url, accounts, addForkConfiguration} from './utils/network';
+import 'hardhat-contract-sizer';
 
 const config: HardhatUserConfig = {
 	solidity: {
@@ -91,6 +92,13 @@ const config: HardhatUserConfig = {
 	tenderly: {
 		project: 'template-ethereum-contracts',
 		username: process.env.TENDERLY_USERNAME as string,
+	},
+	contractSizer: {
+		alphaSort: true,
+		disambiguatePaths: false,
+		runOnCompile: true,
+		strict: true,
+		only: [],
 	},
 };
 
