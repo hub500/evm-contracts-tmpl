@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import {HardhatUserConfig} from 'hardhat/types';
+import { HardhatUserConfig } from 'hardhat/types';
 import 'hardhat-deploy';
 import '@nomiclabs/hardhat-ethers';
 import 'hardhat-deploy-ethers';
@@ -7,7 +7,7 @@ import 'hardhat-gas-reporter';
 import '@typechain/hardhat';
 import 'solidity-coverage';
 import 'hardhat-deploy-tenderly';
-import {node_url, accounts, addForkConfiguration} from './utils/network';
+import { node_url, accounts, addForkConfiguration } from './utils/network';
 import 'hardhat-contract-sizer';
 
 const config: HardhatUserConfig = {
@@ -48,13 +48,9 @@ const config: HardhatUserConfig = {
 			url: node_url('mainnet'),
 			accounts: accounts('mainnet'),
 		},
-		rinkeby: {
-			url: node_url('rinkeby'),
-			accounts: accounts('rinkeby'),
-		},
-		kovan: {
-			url: node_url('kovan'),
-			accounts: accounts('kovan'),
+		sepolia: {
+			url: node_url('sepolia'),
+			accounts: accounts('sepolia'),
 		},
 		goerli: {
 			url: node_url('goerli'),
@@ -62,7 +58,7 @@ const config: HardhatUserConfig = {
 		},
 	}),
 	paths: {
-		sources: 'src',
+		sources: 'contracts',
 	},
 	gasReporter: {
 		currency: 'USD',
